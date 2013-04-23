@@ -109,6 +109,12 @@ abstract class LightOpenIDProviderCore
     abstract function isHttps();
 
     abstract function isUserAgentAcceptingXrds();
+
+    abstract function setAssoc($handle, $assoc);
+
+    abstract function getAssoc($handle);
+
+    abstract function delAssoc($handle);
     
     
     # ------------------------------------------------------------------------ #
