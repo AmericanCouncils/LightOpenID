@@ -124,7 +124,7 @@ abstract class LightOpenIDProviderCore
      * Adds a string to the content of the response.
      */
     protected function addToResponse($s) {
-        $this->responseContent += $s;
+        $this->responseContent .= $s;
     }
 
     /**
@@ -244,6 +244,7 @@ abstract class LightOpenIDProviderCore
     function xrds($force=null)
     {
         if($force) {
+            $this->addHeaderToResponse('Content-Type', 'application/xrds+xml');
             $this->addToResponse($this->xrdsContent());
             return;
         } elseif($force === false) {
@@ -276,7 +277,7 @@ abstract class LightOpenIDProviderCore
             '    </Service>',
             '</XRD>',
             '</xrds:XRDS>'
-            );
+        );
         return implode("\n", $lines);
     }
 
